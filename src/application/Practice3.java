@@ -9,6 +9,7 @@ public class Practice3 {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner userInput = new Scanner(System.in);
+        Account account;
 
         System.out.print("Enter account number: ");
         int accountNumber = userInput.nextInt();
@@ -17,16 +18,15 @@ public class Practice3 {
         System.out.print("Enter account holder: ");
         String accountHolder = userInput.nextLine();
 
-        Account account = new Account(accountNumber, accountHolder);
-
         System.out.print("Is there an initial deposit (y/n)? ");
-        String bool = userInput.nextLine();
-        if(bool.equalsIgnoreCase("y")){
+        char bool = userInput.next().charAt(0);
+        if(bool == 'y') {
             System.out.print("Enter initial deposit value: ");
             double initialDeposit = userInput.nextDouble();
-            userInput.nextLine();
-
-            account.deposit(initialDeposit);
+            account = new Account(accountNumber, accountHolder, initialDeposit);
+        }
+        else {
+            account = new Account(accountNumber, accountHolder);
         }
 
         System.out.println("Account data: ");
