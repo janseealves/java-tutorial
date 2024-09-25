@@ -10,17 +10,13 @@ public class Practice2 {
         Locale.setDefault(Locale.US);
         Scanner userInput = new Scanner(System.in);
 
-        String name;
-        double price;
-        int quantity;
-
         System.out.println("Enter product data: ");
         System.out.print("Name: ");
-        name = userInput.nextLine();
+        String name = userInput.nextLine();
         System.out.print("Price: ");
-        price = userInput.nextDouble();
+        double price = userInput.nextDouble();
         System.out.print("Quantity in stock: ");
-        quantity = userInput.nextInt();
+        int quantity = userInput.nextInt();
 
         Product product = new Product(name, price, quantity);
 
