@@ -3,7 +3,10 @@ package entities;
 public class Account {
     private int number;
     private String holder;
-    private double balance;
+    protected double balance;
+
+    public Account(){
+    }
 
     public Account(int number, String holder){
         this.number = number;
@@ -46,6 +49,7 @@ public class Account {
             System.out.println("Error");
     }
 
+    @Override
     public String toString(){
         return String.format("Account %d, Holder: %s, Balance: $%.2f\n", getNumber(), getHolder(), getBalance());
     }

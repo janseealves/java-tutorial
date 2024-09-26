@@ -1,6 +1,7 @@
 package application;
 
 import entities.Account;
+import entities.BusinessAccount;
 
 import java.util.Locale;
 import java.util.Scanner;
