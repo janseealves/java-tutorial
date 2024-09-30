@@ -3,6 +3,8 @@ package application;
 import entities.Employee;
 import entities.OutSourcedEmployee;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -13,44 +15,36 @@ public class Practice6 {
 
         final int N = 3;
 
-        Employee[] employees = new Employee[N];
-        Employee employee;
+        List<Employee> employees= new ArrayList<>();
 
-        char bool;
-        String name;
-        int hours;
-        double valuePerHour;
-        double additional;
-
-
-        for(int i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++) {
             System.out.printf("Employee #%d data:\n", i+1);
             System.out.print("Outsourced (y/n)? ");
-            bool = userImput.next().charAt(0);
+            char bool = userImput.next().charAt(0);
             userImput.nextLine();
             System.out.print("Name: ");
-            name = userImput.nextLine();
+            String name = userImput.nextLine();
             System.out.print("Hours: ");
-            hours = userImput.nextInt();
+            int hours = userImput.nextInt();
             userImput.nextLine();
             System.out.print("Value per hour: ");
-            valuePerHour = userImput.nextDouble();
+            double valuePerHour = userImput.nextDouble();
             userImput.nextLine();
 
             if (bool == 'y') {
                 System.out.print("Additional charge: ");
-                additional = userImput.nextDouble();
+                double additional = userImput.nextDouble();
                 userImput.nextLine();
 
-                employees[i] = new OutSourcedEmployee(name, hours, valuePerHour, additional);
+                employees.add(new OutSourcedEmployee(name, hours, valuePerHour, additional));
             } else {
-                employees[i] = new Employee(name, hours, valuePerHour);
+                employees.add(new Employee(name, hours, valuePerHour));
             }
         }
 
         System.out.println("Payments: ");
-        for(int i = 0; i < N; i++){
-            System.out.printf("%s - $ %.2f\n", employees[i].getName(), employees[i].payment());
+        for (Employee employee : employees) {
+            System.out.printf("%s - $ %.2f\n", employee.getName(), employee.payment());
         }
     }
 }

@@ -59,6 +59,10 @@ public class Product {
         return price * quantity;
     }
 
+    public String priceTag(){
+        return String.format("%s $ %.2f\n", getName(), getPrice());
+    }
+
     @Override
     public String toString() {
         return String.format("Product data: %s, %.2f, %d units, Total: %.2f", getName(), getPrice(), getQuantity(), totalValueInStock());
