@@ -60,7 +60,7 @@ public class Product {
     }
 
     public String priceTag(){
-        return String.format("%s $ %.2f\n", getName(), getPrice());
+        return String.format("%s $ %.2f", getName(), getPrice());
     }
 
     @Override

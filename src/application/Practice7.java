@@ -6,6 +6,8 @@ import entities.UsedProduct;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.*;
 
 public class Practice7 {
@@ -41,24 +43,19 @@ public class Practice7 {
                 case 'u':
                     System.out.print("Manufacture date (DD/MM/YYYY): ");
                     String stringDate = userImput.nextLine();
-                    SimpleDateFormat format = new SimpleDateFormat("(dd/mm/yyyy)");
-                    try{
-                        Date manufactureDate = format.parse(stringDate);
-                        products.add(new UsedProduct(name, price, manufactureDate));
-                    }
-                    catch (Exception e) {
-                        System.out.println("Error!");
-                    }
+                    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                    Date manufactureDate = format.parse(stringDate);
+                    products.add(new UsedProduct(name, price, manufactureDate));
                     break;
                 default:
                     System.out.println("Invalid char!");
                     break;
             }
 
-            System.out.println("Price Tags:");
-            for (Product product : products){
-                product.priceTag();
-            }
+        }
+        System.out.println("Price Tags:");
+        for (Product product : products){
+            System.out.println(product.priceTag());
         }
     }
 }

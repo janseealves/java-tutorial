@@ -1,5 +1,6 @@
 package entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UsedProduct extends Product{
@@ -24,6 +25,7 @@ public class UsedProduct extends Product{
 
     @Override
     public String priceTag(){
-        return String.format("%s (used )$ %.2f", getName(), getPrice()) + "(Manufacture date: " + getManufactureDate() + ")\n";
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        return String.format("%s (used) $ %.2f (Manufacture date: %s)", getName(), getPrice(), format.format(getManufactureDate()));
     }
 }

@@ -44,7 +44,7 @@ public class Practice6 {
 
         System.out.println("Payments: ");
         for (Employee employee : employees) {
-            System.out.printf("%s - $ %.2f\n", employee.getName(), employee.payment());
+            System.out.printf("%s - $ %.2f", employee.getName(), employee.payment());
         }
     }
 }
